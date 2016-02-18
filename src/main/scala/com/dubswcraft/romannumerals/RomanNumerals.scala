@@ -1,23 +1,12 @@
 package com.dubswcraft.romannumerals
 
-import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.{BeforeAndAfterEach, FlatSpec}
-
-object Roman {
-
-  case class Symbol(latin:Int, roman:String)
-
-  var symbols = List(Symbol(5,"V"), Symbol(4, "IV"), Symbol(1,"I"))
-
-  def toRoman(number:Int): String = {
-    var result = ""
-    var remaining = number
-    symbols.foreach(symbol => {
-      1 to (remaining / symbol.latin) foreach { _ =>
-        result = result + symbol.roman
-        remaining = remaining - symbol.latin
-      }
-    })
-    result
+object RomanNumerals extends App {
+  def toRoman(number: Int) = {
+    def toRomanAcc(number: Int, acc: String, dict: List[(Int, String)]): String = dict match {
+      case Nil => acc
+      case (( numberKey, romanEquiv) :: t) if numberKey <= number => toRomanAcc(number - numberKey, acc + romanEquiv, (numberKey, romanEquiv) :: t)
+      case (h :: t) => toRomanAcc(number, acc, t)
+    }
+    toRomanAcc(number, "", List(1000 -> "M", 900 -> "CM", 500 -> "D", 400 -> "CD", 100 -> "C", 90 -> "XC", 50 -> "L", 40 -> "XL", 10 -> "X", 9 -> "IX", 5 -> "V", 4 -> "IV", 1 -> "I"))
   }
 }
