@@ -5,19 +5,19 @@ import org.scalatest.{FlatSpec, ShouldMatchers}
 
 class RomanNumeralsSpec extends FlatSpec with ShouldMatchers  {
 
-  it should "convert a 1 to I" in {
+  it should "convert a 1 to I" ignore {
     assert(toRoman(1) === "I")
   }
 
-  it should "convert a 2 to II" in {
+  it should "convert a 2 to II" ignore {
     assert(toRoman(2) === "II")
   }
 
-  it should "convert a 5 to V" in {
+  it should "convert a 5 to V" ignore {
     assert(toRoman(5) === "V")
   }
 
-  it should "convert a 4 to IV" in {
+  it should "convert a 4 to IV" ignore {
     assert(toRoman(5) === "V")
   }
 
