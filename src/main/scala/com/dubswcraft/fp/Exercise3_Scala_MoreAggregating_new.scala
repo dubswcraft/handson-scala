@@ -1,6 +1,6 @@
 package com.dubswcraft.fp
 
-class Exercise3_Scala_MoreAggregating_old {
+object Exercise3_Scala_MoreAggregating_New extends App {
 
   case class Person(name: String, height: Int)
   val people = List(Person("Mary", 160), Person("Isla", 80), Person("Sam", 150))
@@ -17,5 +17,7 @@ class Exercise3_Scala_MoreAggregating_old {
     averageHeight = heightTotal / heightCount
 
   println(averageHeight)
+
+  // Exercise
 
 }
