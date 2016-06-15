@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-// Exercise - do this in Exercise3_Scala_MoreAggregating_NoState, use foldLeft and use no mutable state.
+// Exercise 3 - do this in Exercise3_Scala_MoreAggregating_NoState_Fold using fold.
 
 public class Exercise3_Java_MoreAggregating {
 

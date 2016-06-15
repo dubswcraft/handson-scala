@@ -15,11 +15,11 @@ object Exercise2_Scala_BuildingAList_Recursion {
   }
 }
 
-object Exercise3_Scala_MoreAggregating_NoState {
+object Exercise3_Scala_MoreAggregating_NoState_Fold {
   case class Person(name: String, height: Int)
 
   def averageHeight(people: List[Person]) = {
-    val heightTotal = people.map(_.height).sum
+    val heightTotal = people.foldLeft(0)((acc, p) => acc + p.height)
     if (heightTotal <= 0) 0 else heightTotal / people.size
   }
 }
@@ -31,5 +31,31 @@ object Exercise4_Scala_MoreRecursion {
     case list => list.head == list.last && isPalindrome(list.tail.init)
   }
 }
+
+object Exercise5_Scala_FlatMapping {
+  def duplicate(l:List[Integer]):List[Integer] = {
+    l flatMap { e => List(e, e) }
+  }
+}
+
+object Exercise6_Scala_HigherOrderFunctions {
+  type CommissionCalculator = (Int) => BigDecimal
+
+  val citi:CommissionCalculator = _ * 0.15
+  val jp:CommissionCalculator = _ * 0.2
+  val ubs:CommissionCalculator = _ * 0.25
+
+  class CommissionProcessor(calc: CommissionCalculator, amount: Int) {
+    def process() = calc(amount)
+  }
+
+  List(
+    new CommissionProcessor(citi, 1000),
+    new CommissionProcessor(jp, 300),
+    new CommissionProcessor(ubs, 4000)
+  ).map(_.process()).mkString(",")
+}
+
+
 
 

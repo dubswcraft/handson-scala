@@ -3,7 +3,8 @@ package com.dubswcraft.fp.old;
 import java.util.ArrayList;
 import java.util.List;
 
-// EXERCISE 1 - Write this in Scala or Java without using a
+// EXERCISE 1 - Write this in Scala using map without using mutable vars.
+// EXERCISE 2 - Do the same exercise in Exercise2_Scala_BuildingAList_Recursion using a recursive solution
 
 public class Exercise1_Java_BuildingAList {
 
